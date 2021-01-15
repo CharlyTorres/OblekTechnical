@@ -1,36 +1,28 @@
 import React from 'react'
 import '../styles/SearchBar.css';
 
-class SearchBar extends React.Component {
+class DropBox extends React.Component {
     constructor() {
       super();
       
       this.state = {
-        disabled: true,
-        tags: []
+        tags: [
+          'Oblek',
+          'Prueba',
+          'Tecnica'
+        ]
       };
     }
-
     
     removeTag = (i) => {
-      
       const newTags = [ ...this.state.tags ];
       newTags.splice(i, 1);
       this.setState({ tags: newTags });
-      this.tagsCheck()
-    
     }
   
-    tagsCheck = () => {
-      if (this.state.tags.length === 1) {
-        this.setState({disabled: true})
-      }
-    }
-
     inputKeyDown = (e) => {
       const val = e.target.value;
       if (e.key === 'Enter' && val) {
-        this.setState({disabled: false})
         if (this.state.tags.find(tag => tag.toLowerCase() === val.toLowerCase())) {
           return;
         }
@@ -40,7 +32,6 @@ class SearchBar extends React.Component {
         this.removeTag(this.state.tags.length - 1);
       }
     }
-
   
     render() {
       const { tags } = this.state;
@@ -55,12 +46,11 @@ class SearchBar extends React.Component {
               </li>
             ))}
             <li className="input-tag__tags__input"><input type="text" onKeyDown={this.inputKeyDown} ref={c => { this.tagInput = c; }} /></li>
-            <button type="submit" disabled={this.state.disabled} >Search</button>
+            
           </ul>
         </div>
       );
     }
   }
   
-export default SearchBar
-  
+export default DropBox

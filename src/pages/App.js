@@ -1,5 +1,6 @@
 import '../styles/App.css';
 import SearchBar from '../components/Searchbar'
+import DropBox from '../components/DropDown';
 
 
 
@@ -11,8 +12,8 @@ function App() {
             <SearchBar />
         </div>
         <div>
-            <span>Challenge 2. DropBox con consumo de API.</span>
-            <SearchBar />
+            <span>Challenge 2. Dropdown con consumo de API.</span>
+            <DropBox />
         </div>
     </div>
   );
