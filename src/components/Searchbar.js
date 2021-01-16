@@ -1,15 +1,12 @@
-import React from 'react'
 import '../styles/SearchBar.css';
+import React, { Component } from "react";
 
-class SearchBar extends React.Component {
-    constructor() {
-      super();
-      
-      this.state = {
+export default class SearchBar extends Component {
+    state = {
         disabled: true,
         tags: []
       };
-    }
+    
 
     
     removeTag = (i) => {
@@ -62,5 +59,4 @@ class SearchBar extends React.Component {
     }
   }
   
-export default SearchBar
   
